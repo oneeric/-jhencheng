@@ -546,10 +546,13 @@
 
 
 .about-box-area{
+	padding-top: 100px;
+	background-color: #f2f8ff;
 	& .about-box{
 		border: 16px solid #e9f1ff;
 		padding: 77px 24px 77px;
 		position: relative;
+		background-color: #fff;
 		& .about-box-title{
 			& span{
 				font-weight: 700;

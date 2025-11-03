@@ -7,12 +7,17 @@
 
 @import url('https://fonts.googleapis.com/css?family=Archivo:400,500,600,700|Oswald:300,400,500,600,700&display=swap');
 
+html{
+    scroll-behavior: smooth;
+}
+
  body {
 	font-family: $ar;
 	font-weight: normal;
 	font-style: normal;
     color: $body-color;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 *{
@@ -107,7 +112,11 @@ p {
 }
 
 .section-title{
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
+}
+
+.last-section{
+	padding-bottom: 10em !important;
 }
 
 /*===== All Button Style =====*/
@@ -119,9 +128,7 @@ p {
 	white-space: nowrap;
 	vertical-align: middle;
 	@include user-select(none);
-	border: 1px solid $theme-color;
 	padding: 0 43px;
-	font-size: 14px;
 	line-height: 60px;
 	border-radius: 30px;
     color: $white;
@@ -205,6 +212,7 @@ p {
 		font-size: 60px;
 		position: relative;
 		z-index: 10;
+        margin-bottom: 0.4em;
 		@media #{$xs} {
 			font-size: 38px;
 		}

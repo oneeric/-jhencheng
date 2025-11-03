@@ -44,6 +44,7 @@
             font-size: 100px;
             line-height: 1.15em;
             padding-bottom: 22px;
+            text-shadow: 0 5px 13px rgba(0, 0, 0, 0.3);
             @media #{$lg} {
                 font-size: 84px;
             }

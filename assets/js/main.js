@@ -78,6 +78,18 @@ $(function() {
         fade: true,
         asNavFor: '.plans-item-slide'
     });
+    //===== plan slider for space-plans
+    if ($('.plan-slider').length) {
+        $('.plan-slider').each(function(){
+            $(this).slick({
+                dots: true,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 3500,
+                adaptiveHeight: true
+            });
+        });
+    }
     $('.plans-item-slide').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -250,33 +262,33 @@ $(function() {
     //===== circleProgress
 
     $('#circle1').circleProgress({
-        value: 0.90,
+        value: 1,
         size: 150,
         lineCap: "round",
         emptyFill: "#f1f9ff",
         thickness: "7",
         fill: {
-            gradient: ["#0065df" ,"#0044b5"]
+            gradient: ["#e0a00b" ,"#e0a00b"]
         }
     });
     $('#circle2').circleProgress({
-        value: 0.57,
+        value: 1,
         size: 150,
         lineCap: "round",
         emptyFill: "#f1f9ff",
         thickness: "7",
         fill: {
-            gradient: ["#0065df" ,"#0044b5"]
+            gradient: ["#e0a00b" ,"#e0a00b"]
         }
     });
     $('#circle3').circleProgress({
-        value: 0.87,
+        value: 1,
         size: 150,
         lineCap: "round",
         emptyFill: "#f1f9ff",
         thickness: "7",
         fill: {
-            gradient: ["#0065df" ,"#0044b5"]
+            gradient: ["#e0a00b" ,"#e0a00b"]
         }
     });
 
@@ -284,33 +296,33 @@ $(function() {
     //===== circleProgress
 
     $('#circle4').circleProgress({
-        value: 0.90,
+        value: 1,
         size: 150,
         lineCap: "round",
         emptyFill: "#f1f9ff",
         thickness: "7",
         fill: {
-            gradient: ["#ff5d22" ,"#ff5d22"]
+            gradient: ["#e0a00b" ,"#e0a00b"]
         }
     });
     $('#circle5').circleProgress({
-        value: 0.57,
+        value: 1,
         size: 150,
         lineCap: "round",
         emptyFill: "#f1f9ff",
         thickness: "7",
         fill: {
-            gradient: ["#ff5d22" ,"#ff5d22"]
+            gradient: ["#e0a00b" ,"#e0a00b"]
         }
     });
     $('#circle6').circleProgress({
-        value: 0.87,
+        value: 1,
         size: 150,
         lineCap: "round",
         emptyFill: "#f1f9ff",
         thickness: "7",
         fill: {
-            gradient: ["#ff5d22" ,"#ff5d22"]
+            gradient: ["#e0a00b" ,"#e0a00b"]
         }
     });
 

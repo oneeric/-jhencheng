@@ -120,6 +120,150 @@
                 height: 610px;
             }
         }
+        
+        /* Contact Info */
+        .contact-info {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            
+            @media #{$xs} {
+                padding: 20px;
+                margin-top: 30px;
+            }
+            
+            .contact-info-title {
+                font-size: 24px;
+                font-weight: 700;
+                color: $heading-color;
+                margin-bottom: 25px;
+                padding-bottom: 15px;
+                border-bottom: 2px solid $theme-color;
+            }
+            
+            .contact-info-list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .contact-info-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 15px;
+                padding: 15px;
+                background: #ffffff;
+                border-radius: 10px;
+                border: 1px solid #e9ecef;
+                transition: all 0.3s ease;
+                
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                    border-color: $theme-color;
+                }
+                
+                .info-icon {
+                    flex-shrink: 0;
+                    width: 45px;
+                    height: 45px;
+                    background: linear-gradient(135deg, $theme-color, #2a8a7f);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #ffffff;
+                    font-size: 18px;
+                }
+                
+                .info-content {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    
+                    .info-label {
+                        font-size: 12px;
+                        font-weight: 600;
+                        color: #999;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                    }
+                    
+                    a, span {
+                        font-size: 16px;
+                        color: $heading-color;
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+                        
+                        &:hover {
+                            color: $theme-color;
+                        }
+                    }
+                }
+            }
+        }
+        
+        /* Contact Location Items */
+        .contact-location-item {
+            margin-bottom: 30px;
+            
+            @media #{$md} {
+                margin-bottom: 40px;
+            }
+            
+            .contact-touch-map {
+                margin-bottom: 20px;
+                
+                iframe {
+                    height: 250px;
+                    border-radius: 12px;
+                }
+            }
+            
+            .location-info {
+                .location-title {
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: $heading-color;
+                    margin-bottom: 10px;
+                    line-height: 1.3;
+                }
+                
+                .location-address {
+                    font-size: 16px;
+                    color: #666;
+                    margin-bottom: 15px;
+                    line-height: 1.6;
+                }
+                
+                .tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                    
+                    .tag {
+                        display: inline-block;
+                        background: #f8f9fa;
+                        color: $theme-color;
+                        padding: 6px 14px;
+                        border-radius: 20px;
+                        font-size: 13px;
+                        font-weight: 500;
+                        transition: all 0.3s ease;
+                        border: 1px solid #e0e0e0;
+                        
+                        &:hover {
+                            background: $theme-color;
+                            color: #ffffff;
+                            transform: translateY(-2px);
+                            box-shadow: 0 2px 8px rgba($theme-color, 0.3);
+                            border-color: $theme-color;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

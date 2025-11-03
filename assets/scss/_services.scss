@@ -1,3 +1,13 @@
+.pillars-list,
+.incubation-list.pillars-list { /* ensure overrides any flex from .incubation-list */
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    
+    @media #{$xs} {
+        grid-template-columns: 1fr;
+    }
+}
 
 
 
@@ -44,4 +54,1028 @@
 			}
 		}
 	}
+}
+
+/*===== 服務詳細區塊 =====*/
+.service-detail-area {
+    padding: 80px 0;
+    
+    &.bg-light {
+        background-color: #f8f9fa;
+    }
+    
+    .service-detail-content {
+        padding: 20px 0;
+        
+        .service-icon {
+            margin-bottom: 30px;
+            
+            img {
+                width: 80px;
+                height: 80px;
+                object-fit: contain;
+            }
+        }
+        
+        .service-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: $heading-color;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            
+            @media #{$md} {
+                font-size: 32px;
+            }
+            
+            @media #{$xs} {
+                font-size: 28px;
+            }
+        }
+        
+        .service-intro {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            
+            @media #{$xs} {
+                font-size: 16px;
+            }
+        }
+        
+        .service-features {
+            margin-bottom: 40px;
+            
+            h4 {
+                font-size: 24px;
+                font-weight: 600;
+                color: $heading-color;
+                margin-bottom: 20px;
+                
+                @media #{$xs} {
+                    font-size: 20px;
+                }
+            }
+            
+            /* Tag style feature list */
+            .feature-tags {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                
+                li {
+                    display: inline-flex;
+                    align-items: center;
+                    background: #f8f9fa;
+                    color: #1a6f67;
+                    padding: 6px 12px;
+                    border-radius: 18px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    border: 1px solid #e0e0e0;
+                    transition: all 0.2s ease;
+                    
+                    i {
+                        color: #1a6f67;
+                        margin-right: 6px;
+                        font-size: 12px;
+                    }
+                    
+                    &:hover {
+                        background: #1a6f67;
+                        color: #fff;
+                        border-color: #1a6f67;
+                        i { color: #fff; }
+                    }
+                }
+            }
+        }
+        
+        /* Note: keep styles when process block is inside content */
+        .service-process {
+            margin-bottom: 40px;
+            
+            h4 {
+                font-size: 24px;
+                font-weight: 600;
+                color: $heading-color;
+                margin-bottom: 30px;
+                
+                @media #{$xs} {
+                    font-size: 20px;
+                }
+            }
+            
+            /* Timeline style (desktop) */
+            .process-steps {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                padding: 20px 0 10px;
+                
+                /* horizontal connector */
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 36%;
+                    left: 70px; /* Start after first circle */
+                    right: 70px; /* End before last circle */
+                    height: 8px;
+                    background: $theme-color;
+                    border-radius: 4px;
+                    transform: translateY(-50%);
+                }
+                
+                .step-item {
+                    position: relative;
+                    z-index: 1; /* above the connector */
+                    text-align: center;
+                    flex: 1 1 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    .step-number {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 140px;
+                        height: 140px;
+                        background: $theme-color;
+                        color: $white;
+                        border-radius: 50%;
+                        box-shadow: 0 6px 20px rgba(26, 111, 103, 0.35);
+                        
+                        /* icon in center */
+                        i {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -58%);
+                            font-size: 56px;
+                            line-height: 1;
+                            color: $white;
+                        }
+                        
+                        /* number badge (kept as requested) */
+                        .num {
+                            position: absolute;
+                            bottom: 14px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            font-weight: 700;
+                            font-size: 22px;
+                            color: $white;
+                            text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+                        }
+                    }
+                    
+                    .step-content {
+                        margin-top: 16px;
+                        max-width: 220px;
+                        
+                        /* Desktop 依照示意圖主要顯示圓點，文字次要，可選擇隱藏或縮小 */
+                        h5 {
+                            font-size: 1.1em;
+                            font-weight: 600;
+                            color: $heading-color;
+                            margin-bottom: 6px;
+                        }
+                        
+                        p {
+                            font-size: 0.9em;
+                            color: #6c757d;
+                            line-height: 1.5;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+            
+            /* Responsive: stack vertically on small screens */
+            @media #{$md} {
+                .process-steps {
+                    gap: 16px;
+                    
+                    .step-item {
+                        .step-number {
+                            width: 110px;
+                            height: 110px;
+                            i { font-size: 44px; }
+                            .num { font-size: 18px; bottom: 12px; }
+                        }
+                    }
+                }
+            }
+            
+            @media #{$xs} {
+                .process-steps {
+                    &::before {
+                        display: none; /* 移除水平連接線 */
+                    }
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 18px;
+                    
+                    .step-item {
+                        flex-direction: row;
+                        align-items: center;
+                        width: 100%;
+                        
+                        .step-number {
+                            width: 56px;
+                            height: 56px;
+                            margin-right: 14px;
+                            box-shadow: 0 3px 10px rgba(26, 111, 103, 0.25);
+                            i { font-size: 22px; transform: translate(-50%, -55%); }
+                            .num { font-size: 12px; bottom: 8px; }
+                        }
+                        
+                        .step-content {
+                            margin-top: 0;
+                            max-width: 100%;
+                            text-align: left; /* 手機版文字靠左對齊 */
+                            
+                            h5 {
+                                font-size: 1.2em;
+                                margin-bottom: 4px;
+                            }
+                            
+                            p {
+                                font-size: 1em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Also support process block placed outside of .service-detail-content */
+        /* Duplicate selector at the same level to cover full-width row usage */
+    }
+
+    /* Full-width process timeline (outside of .service-detail-content) */
+    .service-process {
+        margin-bottom: 40px;
+        
+        h4 {
+            font-size: 24px;
+            font-weight: 600;
+            color: $heading-color;
+            margin-bottom: 30px;
+            
+            @media #{$xs} {
+                font-size: 20px;
+            }
+        }
+        
+        .process-steps {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 0 10px;
+            
+            &::before {
+                content: "";
+                position: absolute;
+                top: 35%;
+                left: 70px; /* Start after first circle */
+                right: 70px; /* End before last circle */
+                height: 4px;
+                background: $theme-color;
+                border-radius: 4px;
+                transform: translateY(-50%);
+            }
+            
+            .step-item {
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                flex: 1 1 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                .step-number {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 140px;
+                    height: 140px;
+                    background: $theme-color;
+                    color: $white;
+                    border-radius: 50%;
+                    box-shadow: 0 6px 20px rgba(26, 111, 103, 0.35);
+                    
+                    i {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -58%);
+                        font-size: 56px;
+                        line-height: 1;
+                        color: $white;
+                    }
+                    
+                    .num {
+                        position: absolute;
+                        bottom: 14px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        font-weight: 700;
+                        font-size: 22px;
+                        color: $white;
+                        text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+                    }
+                }
+                
+                .step-content {
+                    margin-top: 2em;
+                    max-width: 220px;
+                    h5 { font-size: 1.1em; font-weight: 600; color: $heading-color; margin-bottom: 6px; }
+                    p { font-size: 0.9em; color: #6c757d; line-height: 1.5; margin: 0; }
+                }
+            }
+        }
+        
+        @media #{$md} {
+            .process-steps {
+                gap: 16px;
+                .step-item {
+                    .step-number { width: 110px; height: 110px; i { font-size: 44px; } .num { font-size: 18px; bottom: 12px; } }
+                }
+            }
+        }
+        
+        @media #{$xs} {
+            .process-steps {
+                &::before { display: none; }
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+                
+                .step-item {
+                    flex-direction: row;
+                    align-items: center;
+                    width: 100%;
+                    
+                    .step-number { width: 56px; height: 56px; margin-right: 14px; box-shadow: 0 3px 10px rgba(26, 111, 103, 0.25); i { font-size: 22px; transform: translate(-50%, -55%); } .num { font-size: 12px; bottom: 8px; } }
+                    .step-content { 
+                        margin-top: 0; 
+                        max-width: 100%; 
+                        text-align: left; /* 手機版文字靠左對齊 */
+                        h5 { font-size: 1.2em; margin-bottom: 4px; } 
+                        p { font-size: 1em; } 
+                    }
+                }
+            }
+        }
+    }
+        
+        .service-benefits {
+            margin-bottom: 40px;
+            
+            h4 {
+                font-size: 24px;
+                font-weight: 600;
+                color: $heading-color;
+                margin-bottom: 25px;
+                
+                @media #{$xs} {
+                    font-size: 20px;
+                }
+            }
+            
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                
+                @media #{$xs} {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                }
+                
+                .benefit-item {
+                    text-align: center;
+                    padding: 20px;
+                    background: $white;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                    
+                    &:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+                    }
+                    
+                    i {
+                        font-size: 32px;
+                        color: $theme-color;
+                        margin-bottom: 15px;
+                    }
+                    
+                    h5 {
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: $heading-color;
+                        margin-bottom: 8px;
+                    }
+                    
+                    p {
+                        font-size: 14px;
+                        color: #666;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        
+        .service-pricing {
+            margin-bottom: 40px;
+            
+            h4 {
+                font-size: 24px;
+                font-weight: 600;
+                color: $heading-color;
+                margin-bottom: 25px;
+                
+                @media #{$xs} {
+                    font-size: 20px;
+                }
+            }
+            
+            .pricing-cards {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                
+                @media #{$md} {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                }
+                
+                .pricing-card {
+                    background: $white;
+                    border: 2px solid #e9ecef;
+                    border-radius: 15px;
+                    padding: 30px 20px;
+                    text-align: center;
+                    transition: all 0.3s ease;
+                    
+                    &.featured {
+                        border-color: $theme-color;
+                        transform: scale(1.05);
+                        box-shadow: 0 5px 20px rgba(26, 111, 103, 0.2);
+                    }
+                    
+                    &:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    h5 {
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: $heading-color;
+                        margin-bottom: 10px;
+                    }
+                    
+                    p {
+                        font-size: 14px;
+                        color: #666;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .price {
+                        font-size: 24px;
+                        font-weight: 700;
+                        color: $theme-color;
+                        
+                        @media #{$xs} {
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .upcoming-events {
+            h4 {
+                font-size: 24px;
+                font-weight: 600;
+                color: $heading-color;
+                margin-bottom: 25px;
+                
+                @media #{$xs} {
+                    font-size: 20px;
+                }
+            }
+            
+            .event-list {
+                .event-item {
+                    display: flex;
+                    align-items: center;
+                    background: $white;
+                    border-radius: 10px;
+                    padding: 20px;
+                    margin-bottom: 15px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                    
+                    &:hover {
+                        transform: translateX(5px);
+                        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+                    }
+                    
+                    .event-date {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 60px;
+                        height: 60px;
+                        background: $theme-color;
+                        color: $white;
+                        border-radius: 10px;
+                        margin-right: 20px;
+                        flex-shrink: 0;
+                        
+                        .month {
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+                        
+                        .day {
+                            font-size: 20px;
+                            font-weight: 700;
+                        }
+                    }
+                    
+                    .event-content {
+                        flex: 1;
+                        
+                        h5 {
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: $heading-color;
+                            margin-bottom: 5px;
+                        }
+                        
+                        p {
+                            font-size: 14px;
+                            color: #666;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .sticky-image {
+        display: block !important;
+        position: relative !important;
+        overflow: unset !important;
+        height: 100%;
+    }
+    .sticky-image img {
+        position: sticky !important;
+        top: 100px;
+    }
+    
+    .service-detail-image {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: auto; /* remove fixed height */
+            aspect-ratio: 6 / 4; /* square */
+            object-fit: cover;
+            transition: all 0.3s ease;
+            display: block;
+            border-radius: 15px;
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 111, 103, 0.8), rgba(26, 111, 103, 0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            
+            .overlay-content {
+                text-align: center;
+                color: $white;
+                
+                h4 {
+                    font-size: 24px;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                }
+                
+                p {
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
+        }
+        
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+            
+            .image-overlay {
+                opacity: 1;
+            }
+        }
+    }
+@media #{$md} {
+    .service-detail-area {
+        padding: 60px 0;
+        .service-detail-content { margin-bottom: 40px; }
+    }
+}
+.pillars-grid {
+    grid-template-columns: repeat(4, 1fr);
+    @media #{$md} { grid-template-columns: repeat(2, 1fr); }
+    @media #{$xs} { grid-template-columns: 1fr; }
+}
+
+
+/*===== Incubation Modules 2x2 Grid (startup.html 專用) =====*/
+.incubation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    
+    @media #{$xs} { grid-template-columns: 1fr; }
+    
+    .benefit-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        min-height: 240px;
+        padding: 24px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        box-shadow: 0 8px 22px rgba(0,0,0,.15);
+        transition: transform .3s ease, box-shadow .3s ease;
+        text-align: left;
+        
+        i { 
+            font-size: 46px; 
+            color: #fff; 
+            position: absolute; 
+            top: 24px; 
+            left: 24px; 
+            z-index: 2; 
+        }
+        h5 { font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 6px 0; position: relative; z-index: 2; }
+        p { font-size: 1em; color: rgba(255,255,255,.95); margin: 0; position: relative; z-index: 2; }
+        
+        &:before { /* 背景圖片 */
+            content: "";
+            position: absolute; inset: 0;
+            background-size: cover; background-position: center;
+            transform: scale(1.06);
+            filter: brightness(.72);
+            transition: transform .5s ease, filter .3s ease;
+        }
+        
+        &:after { /* 滑入綠色透明覆蓋 */
+            content: "";
+            position: absolute; inset: 0;
+            background: rgba(26, 111, 103, 0.0);
+            transition: background .3s ease;
+        }
+        
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0,0,0,.22);
+            &:before { transform: scale(1.1); filter: brightness(.9); }
+            &:after { background: rgba(26, 111, 103, 0.45); }
+        }
+    }
+    
+    /* 依序套用背景圖 */
+    .benefit-item:nth-child(1):before { background-image: url('../images/service-img-01.webp'); }
+    .benefit-item:nth-child(2):before { background-image: url('../images/place-bg.webp'); }
+    .benefit-item:nth-child(3):before { background-image: url('../images/startup-model-03.webp'); }
+    .benefit-item:nth-child(4):before { background-image: url('../images/startup-model-04.webp'); }
+}
+
+/*===== Incubation list rows (one item per row) =====*/
+.incubation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .list-item {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        padding: 1em 16px;
+        background: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,.04);
+
+        i {
+            color: $theme-color;
+            font-size: 1.8em;
+            min-width: 1.2em;
+            text-align: center;
+            line-height: 1;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .text {
+            h5 { margin: 0 0 4px 0; font-weight: 700; color: $heading-color; }
+            p { margin: 0; color: #566; }
+        }
+    }
+}
+
+@media #{$xs} {
+    .service-detail-area {
+        padding: 40px 0;
+        .service-detail-content { margin-bottom: 30px; }
+    }
+}
+
+/*===== 聯絡我們 CTA 區塊 =====*/
+.contact-cta-area {
+    background: linear-gradient(135deg, $theme-color, #2a8a7f);
+    padding: 80px 0;
+    color: $white;
+    
+    .cta-content {
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: $white;
+            
+            @media #{$md} {
+                font-size: 32px;
+            }
+            
+            @media #{$xs} {
+                font-size: 28px;
+            }
+        }
+        
+        p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            color: $white;
+            @media #{$xs} {
+                font-size: 16px;
+            }
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            
+            @media #{$xs} {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .main-btn {
+                
+                
+                &:not(.secondary) {
+                    background: $accent-color;
+                    color: $theme-color;
+                    
+                    &:hover {
+                        background: #f8f9fa;
+                        transform: translateY(-2px);
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                    }
+                }
+                
+                &.secondary {
+                    background: transparent;
+                    color: $white;
+                    border: 2px solid $white;
+                    
+                    &:hover {
+                        background: $white;
+                        color: $theme-color;
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+    }
+    
+    @media #{$md} {
+        padding: 60px 0;
+    }
+    
+    @media #{$xs} {
+        padding: 40px 0;
+    }
+}
+
+/* Dark overlay variant for CTA with image bg */
+.contact-cta-area.cta-dark {
+    position: relative;
+    background-size: cover; background-position: center;
+
+    .overlay { position: absolute; inset: 0; background: rgba(0,0,0,.2); }
+    .container { position: relative; z-index: 1; }
+
+    .cta-content {
+        h2 { color: #fff; }
+        p { color: rgba(255,255,255,.92); }
+        .main-btn.secondary { border-color: #fff; color: #fff; }
+    }
+}
+
+/*===== Space Plans =====*/
+.space-plans {
+    padding: 80px 0;
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        span { display: block; font-weight: 600; opacity: .9; }
+        .title { font-size: 32px; font-weight: 700; margin: 10px 0; }
+        p { font-size: 16px; opacity: .8; margin: 0; }
+    }
+    
+    .plan-item { 
+        margin-bottom: 40px; 
+        background: $theme-color; 
+        border-radius: 16px; 
+        overflow: hidden; 
+        padding: 24px; 
+        min-height: 420px; 
+        
+        .row { align-items: stretch; }
+        
+        // 讓兩側欄位撐滿等高
+        .col-lg-7, .col-lg-5, .col-lg-6 { display: flex; }
+    }
+    
+    .plan-thumb {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0,0,0,.08);
+        flex: 1 1 auto;
+        
+        // 讓圖片高度隨容器變動
+        img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; display: block; }
+        .plan-slider { position: relative; height: 100%; }
+        .slick-list, .slick-track, .slick-slide { height: 100%; }
+        .slick-slide img { height: 100%; }
+        .slick-dots {
+            position: absolute; left: 0; right: 0; bottom: 10px;
+            width: 100%; list-style: none; margin: 0; padding: 0; text-align: center;
+            li { display: inline-block; margin: 0 4px; }
+            button { width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.6); font-size: 0; line-height: 0; }
+            li.slick-active button { background: #fff; }
+        }
+        .slick-prev, .slick-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(0,0,0,.35);
+            display: flex; align-items: center; justify-content: center;
+            border: 0;
+            font-size: 0; line-height: 0; /* hide default text */
+            &:hover { background: rgba(0,0,0,.5); }
+            &:after { color: #fff; font-size: 20px; line-height: 1; }
+        }
+        .slick-prev { left: 10px; &:after { content: '‹'; } }
+        .slick-next { right: 10px; &:after { content: '›'; } }
+    }
+    
+    .plan-content {
+        // 背景改由外層 .plan-item 控制
+        color: #ffffff;
+        padding: 36px;
+        border-radius: 0;
+        flex: 1 1 auto;
+        
+        .plan-title { 
+            font-size: 34px; 
+            font-weight: 800; 
+            margin-bottom: 12px; 
+            color: #ffffff;
+        }
+        .plan-meta {
+            list-style: none; 
+            padding: 0; 
+            margin: 12px 0 12px 0;
+            border-top: 1px solid rgba(255,255,255,.28);
+            padding-top: 12px;
+            li { 
+                line-height: 1.9; 
+                color: #ffffff;
+            }
+        }
+        .plan-note {  
+            opacity: .85; 
+            color: #ffffff;
+        }
+        .plan-extra { 
+            margin-top: 10px; 
+            h5 { 
+                border-top: 1px solid rgba(255,255,255,.28);
+                padding-top: 12px;
+                margin-top: 12px;
+                font-size: 16px; 
+                font-weight: 700; 
+                margin: 10px 0 6px; 
+                color: #ffffff;
+            } 
+        }
+        .plan-bullets { 
+            list-style: disc; 
+            padding-left: 18px; 
+            margin: 0 0 6px 0; 
+            li{  
+                line-height: 1.8; 
+                color: #ffffff;
+            } 
+        }
+        .plan-tags { 
+            list-style:none; 
+            padding:0; 
+            margin: 8px 0 10px 0; 
+            display:flex; 
+            flex-wrap:wrap; 
+            gap:6px; 
+            li{ 
+                background:rgba(255,255,255,0.2); 
+                border:1px solid rgba(255,255,255,0.3); 
+                color:#ffffff; 
+                border-radius:14px; 
+                padding:4px 10px; 
+                font-weight:500; 
+            }
+        }
+    }
+    
+    @media #{$xs} {
+        padding: 50px 0;
+        .plan-item { margin-bottom: 40px; }
+        .plan-content { 
+            padding: 24px; 
+            .plan-title { font-size: 28px; } 
+        }
+    }
+}
+
+/*===== Global service note (ensure applied regardless of nesting) =====*/
+.service-note {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background: rgba(26, 111, 103, 0.08);
+    border-left: 4px solid $theme-color;
+    border-radius: 0 8px 8px 0;
+    
+    p {
+        margin: 0;
+        font-size: 14px;
+        color: #555;
+        line-height: 1.7;
+        
+        strong {
+            color: $theme-color;
+            font-weight: 600;
+        }
+    }
 }
