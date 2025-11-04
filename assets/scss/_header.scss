@@ -57,6 +57,25 @@
         & .navbar {
             position: relative;
             padding: 0 1.2em;
+            
+            @media #{$xs} {
+                flex-wrap: nowrap !important; // 強制維持一行
+                padding: 0 0.5em;
+            }
+            
+            & .navbar-brand {
+                @media #{$xs} {
+                    max-width: 60%; // 允許 logo 縮小
+                    flex-shrink: 1; // 允許收縮
+                    
+                    img {
+                        width: 100% !important;
+                        height: auto;
+                        max-width: 100%;
+                    }
+                }
+            }
+            
             & .country-flag{
                 & img{
                     border: 5px solid $white;
