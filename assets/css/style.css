@@ -919,14 +919,14 @@ p {
 }
 @media (max-width: 767px) {
   .banner-area .banner-content .title {
-    font-size: 48px;
-    line-height: 58px;
+    font-size: 10vw;
+    line-height: 13vw;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .banner-area .banner-content .title {
-    font-size: 70px;
-    line-height: 80px;
+    font-size: 10vw;
+    line-height: 13vw;
   }
 }
 .banner-area .banner-content ul li {
