@@ -421,7 +421,6 @@ p {
     flex-shrink: 1;
   }
   .header-nav .navigation .navbar .navbar-brand img {
-    width: 100% !important;
     height: auto;
     max-width: 100%;
   }
